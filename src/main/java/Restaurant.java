@@ -17,6 +17,10 @@ public class Restaurant {
         this.closingTime = closingTime;
     }
 
+    public int getTotalPrice(List<String> itemNames) {
+        return 0;
+    }
+
     public boolean isRestaurantOpen() {
         var currentTime = getCurrentTime();
         var openingTime = this.openingTime;
