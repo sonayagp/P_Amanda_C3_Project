@@ -2,6 +2,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Restaurant {
     private String name;
@@ -18,7 +19,13 @@ public class Restaurant {
     }
 
     public int getTotalPrice(List<String> itemNames) {
-        return 0;
+        var sum = 0;
+
+        for (var itemName: itemNames) {
+            sum += findItemByName(itemName).getPrice();
+        }
+
+        return sum;
     }
 
     public boolean isRestaurantOpen() {
