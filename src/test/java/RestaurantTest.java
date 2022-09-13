@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,6 +36,22 @@ class RestaurantTest {
             return;
         }
     }
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>MENU TOTAL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void get_total_price_should_total_price_for_valid_item_name_list() {
+        var list = new ArrayList<String>();
+        list.add("Sweet corn soup");
+        list.add("Vegetable lasagne");
+
+        var total = 119 + 269;
+        assertEquals(restaurant.getTotalPrice(list), total);
+
+        list.add("Sizzling brownie");
+        total += 319;
+        assertEquals(restaurant.getTotalPrice(list), total);
+    }
+    //>>>>>>>>>>>>>>>>>>>>>>>>>MENU TOTAL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>OPEN/CLOSED<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     //-------FOR THE 2 TESTS BELOW, YOU MAY USE THE CONCEPT OF MOCKING, IF YOU RUN INTO ANY TROUBLE
