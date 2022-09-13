@@ -24,22 +24,11 @@ class RestaurantTest {
         restaurant.addToMenu("Vegetable lasagne", 269);
     }
 
-    @AfterEach
-    public void afterEach() {
-        Mockito.reset(restaurant);
-
-        try {
-            restaurant.removeFromMenu("Sweet corn soup");
-            restaurant.removeFromMenu("Vegetable lasagne");
-            restaurant.removeFromMenu("Sizzling brownie");
-        } catch (itemNotFoundException ex) {
-            return;
-        }
-    }
-
     //>>>>>>>>>>>>>>>>>>>>>>>>>MENU TOTAL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
     public void get_total_price_should_total_price_for_valid_item_name_list() {
+        restaurant.addToMenu("Sizzling brownie", 319);
+
         var list = new ArrayList<String>();
         list.add("Sweet corn soup");
         list.add("Vegetable lasagne");
